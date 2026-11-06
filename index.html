@@ -100,7 +100,7 @@
           <div class="whitespace-pre-line text-justify text-slate-800/90 font-serif leading-relaxed">Thân tặng Hp qt,
 Chẳng có đồ gì sịn hay đắt tiền, có chiếc dây treo đan từ chỉ ngũ sắc này, trong Phật giáo các đồ đan từ chỉ ngũ sắc tượng trưng cho sự bình an, may mắn và được hộ mệnh. Dây treo này là duyên phước do thầy của tôi (trụ trì chùa Sùng Phúc - Bắc Ninh) tặng cho tôi lần đầu gặp, thầy mua khi thầy đi Tây Tạng. Tôi để ở bên phòng thờ nên cũng hay được nghe tôi tụng kinh trì niệm. Phước lành sinh ra là để lan tỏa, nên tôi muốn gửi trao lại duyên lành này cho Phong, mong rằng trong từng bước đường phía trước, Phong và gia đình luôn bình an, khỏe mạnh và hanh thông.
 
-Và còn điều nữa, anh em mình đã cùng đi qua một đoạn đường, có những niềm vui đời thường và cả những trầm lặng sẻ chia. Sau này mỗi người lại trở về với nhịp sống riêng. Tôi vắng mặt trong chặng đường sắp tới của ông, nhưng từ nay, mỗi lần cất tiếng kinh niệm, tôi đều xin nguyện hồi hướng chút phước lành này về cho Phong và gia đình. Đi đường đi xá luôn bình an vô sự, tai qua nạn khỏi. Trong lúc khó khăn nhất thì đều có người giúp đỡ. Nếu chẳng may đau ốm thì đều gặp được bác sĩ giỏi, đi làm nếu gặp đồng nghiệp xấu thì đều đủ tỉnh táo và bản lĩnh để bước qua. Những lúc gánh nặng cơm áo đè vai vẫn giữ được sức bền, không bao giờ cảm thấy cô độc hay tuyệt vọng.
+Và còn điều nữa, anh em mình đã cùng đi qua một đoạn đường, có những niềm vui đời thường và cả những trầm lặng sẻ chia. Sau me mỗi người lại trở về với nhịp sống riêng. Tôi vắng mặt trong chặng đường sắp tới của ông, nhưng từ nay, mỗi lần cất tiếng kinh niệm, tôi đều xin nguyện hồi hướng chút phước lành này về cho Phong và gia đình. Đi đường đi xá luôn bình an vô sự, tai qua nạn khỏi. Trong lúc khó khăn nhất thì đều có người giúp đỡ. Nếu chẳng may đau ốm thì đều gặp được bác sĩ giỏi, đi làm nếu gặp đồng nghiệp xấu thì đều đủ tỉnh táo và bản lĩnh để bước qua. Những lúc gánh nặng cơm áo đè vai vẫn giữ được sức bền, không bao giờ cảm thấy cô độc hay tuyệt vọng.
 
 Anh em mình bây giờ lại tiếp tục quay lại guồng quay, tiếp tục leo tiếp ngọn núi dốc cuộc sống, mong sau này nếu còn gặp thì không chỉ nhau ở trên bàn nhậu mà còn phải gặp nhau ở trên đỉnh của ngọn núi đó nhé.
 Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong trong cuộc sống.</div>
@@ -192,6 +192,14 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
       }
     }
 
+    function stopBgMusic() {
+      const audio = document.getElementById('bg-music');
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+
     function toggleMusic() {
       const audio = document.getElementById('bg-music');
       if (!audio) return;
@@ -199,21 +207,13 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
       else audio.pause();
     }
 
-    // TỰ ĐỘNG PHÁT NHẠC Ở LẦN CHẠM/CLICK ĐẦU TIÊN CỦA NGUỜI DÙNG
-    function enableAutoPlayOnFirstTouch() {
-      const startAudio = () => {
-        startBgMusic();
-        document.removeEventListener('click', startAudio);
-        document.removeEventListener('touchstart', startAudio);
-      };
-      document.addEventListener('click', startAudio, { once: true });
-      document.addEventListener('touchstart', startAudio, { once: true });
-    }
-    enableAutoPlayOnFirstTouch();
-
     function goToScreen(screenNum) {
-      startBgMusic();
       if (storyTimer) { clearTimeout(storyTimer); storyTimer = null; }
+
+      // Tắt nhạc nếu quay về các màn trước
+      if (screenNum !== 5) {
+        stopBgMusic();
+      }
 
       for (let i = 1; i <= 5; i++) {
         const sc = document.getElementById('screen-' + i);
@@ -233,7 +233,9 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
         confetti({ particleCount: 80, spread: 90, origin: { y: 0.6 }, colors: ['#f59e0b', '#ec4899', '#8b5cf6', '#10b981'] });
       }
 
+      // CHỈ PHÁT NHẠC KHI ẤN ĐÓNG THƯ LẠI SANG MÀN 5 (STORY)
       if (screenNum === 5) {
+        startBgMusic();
         if (activeSc) activeSc.classList.add('z-50');
         initStoryProgressBars();
         playStory(0);
