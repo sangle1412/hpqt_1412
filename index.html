@@ -35,6 +35,15 @@
   <!-- FRAME MOBILE SIMULATOR -->
   <div class="w-full max-w-[430px] h-[100dvh] sm:h-[844px] bg-slate-900 flex flex-col justify-center items-center relative overflow-hidden shadow-2xl sm:rounded-[40px]">
     
+    <!-- AUDIO BACKGROUND CHO BỨC THƯ -->
+    <audio id="bg-audio" src="goodbye_bg.mp3" loop preload="auto"></audio>
+
+    <!-- LOADING OVERLAY KHI BẤM ĐÓNG THƯ -->
+    <div id="loading-screen" class="absolute inset-0 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center p-6 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+      <div class="w-12 h-12 border-4 border-amber-500/20 border-t-amber-500 rounded-full animate-spin mb-4"></div>
+      <p class="text-xs text-amber-200/90 font-medium tracking-wide animate-pulse">Đang chuẩn bị thước phim kỷ niệm...</p>
+    </div>
+
     <!-- MÀN HÌNH 1: Phong Thư -->
     <div id="screen-1" class="absolute inset-0 w-full h-full bg-gradient-to-b from-rose-50 via-white to-amber-50 flex flex-col items-center justify-center p-6 text-center transition-all duration-500 z-30">
       <div class="w-full max-w-[320px] bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-rose-100 flex flex-col items-center animate-pulse-subtle">
@@ -50,12 +59,18 @@
 
         <span class="text-[11px] font-bold uppercase tracking-wider text-rose-500 bg-rose-50 px-3.5 py-1 rounded-full mb-3 border border-rose-100/80">Thiệp Thông Điệp</span>
         <h1 class="text-base font-bold text-slate-900 mb-2 leading-snug">Bạn nhận được 1 bức thư từ Sang</h1>
-        <p class="text-xs text-slate-500 mb-6 leading-relaxed">Nhấn nút bên dưới để mở phong thư xem chi tiết.</p>
+        <p class="text-xs text-slate-500 mb-5 leading-relaxed">Nhấn nút bên dưới để mở phong thư xem chi tiết.</p>
         
         <button onclick="goToScreen(2)" class="w-full py-3.5 px-6 bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 text-white font-bold rounded-2xl shadow-lg shadow-rose-500/25 active:scale-95 transition flex items-center justify-center gap-2">
           <i data-lucide="mail-open" class="w-4 h-4"></i>
           <span>Mở Bức Thư</span>
         </button>
+
+        <!-- CHÚ CHÍCH ĐEO TAI NGHE -->
+        <p class="text-[11px] text-slate-400 mt-4 flex items-center justify-center gap-1.5 font-medium">
+          <i data-lucide="headphones" class="w-3.5 h-3.5 text-rose-500"></i>
+          <span>Đeo tai nghe trước khi tiếp tục</span>
+        </p>
       </div>
     </div>
 
@@ -109,18 +124,18 @@
             <div class="w-7 h-7 rounded-full bg-amber-700/10 flex items-center justify-center text-amber-800">
               <i data-lucide="scroll" class="w-4 h-4"></i>
             </div>
-            <span class="text-xs font-bold tracking-tight text-amber-900 uppercase">V/v thư kính chúc đồng chí</span>
+            <span class="text-xs font-bold tracking-tight text-amber-900 uppercase">Thư kính chúc đồng chí</span>
           </div>
         </div>
         
         <div class="flex-1 overflow-y-auto no-scrollbar pr-1 space-y-3 font-serif text-slate-800 text-[12px] leading-relaxed">
           <p class="font-bold text-amber-900 text-sm italic font-sans">Thân tặng Hp qt,</p>
-          <div class="whitespace-pre-line text-justify text-slate-800/90 font-serif leading-relaxed">Sang chẳng có món đồ gì xịn hay đắt tiền để tặng Phong làm kỷ niệm. Chỉ có chiếc dây treo đan từ chỉ ngũ sắc này, được thầy trụ trì chùa Sùng Phúc Bắc Ninh mua trong chuyến đi Tây Tạng rồi tặng tôi vào ngày đầu tiên hai thầy trò gặp nhau.
-Trong Phật giáo, những đồ vật đan từ chỉ ngũ sắc thường tượng trưng cho sự bình an, may mắn và được chở che, hộ mệnh. Từ ngày nhận về, tôi vẫn treo chiếc dây bên phòng thờ, cũng thường để nó bên cạnh những buổi gõ mõ, tụng kinh, trì niệm của tôi. Nếu có sinh ra điều phước điều lành nào thì tôi mong muốn đều chia sẻ ít nhiều cho Phong, mong rằng trong từng bước đường phía trước, Phong và gia đình luôn bình an, khỏe mạnh và hanh thông.
-
-Và còn điều nữa, anh em mình đã cùng đi qua một đoạn đường, có những niềm vui đời thường và cả những trầm lặng sẻ chia. Sau này mỗi người lại trở về với nhịp sống riêng. Tôi không hiện diện thường xuyên trong chặng đường sắp tới của ông, nhưng chúc ông luôn khỏe mạnh và sống tốt. Nếu có gõ mõ tụng kinh thì mỗi lần tôi đều xin nguyện hồi hướng chút phước lành có về cho ông và gia đình. Mỗi chuyến đi xa hay những lần đi lại đều được bình an vô sự. Lúc khó khăn sa cơ lỡ vận thì đều có người giúp đỡ. Hôm chẳng may đau ốm thì sẽ gặp được bác sĩ giỏi và chóng khỏe. Đi làm nếu gặp đồng nghiệp xấu hay cám dỗ thì đều đủ tỉnh táo và bản lĩnh để bước qua. Những lúc gánh nặng cơm áo đè vai vẫn giữ luôn kiên trì, không bao giờ cảm thấy cô độc hay tuyệt vọng.
-
-Anh em mình lại tiếp tục quay lại guồng quay cuộc sống, tiếp tục leo tiếp ngọn núi của riêng mình. Chỉ mong Phong luôn làm chủ trong từng quyết định của mình, luôn bình tĩnh nếu trở ngại đến vì mọi thứ đã năm trong sự tính toán. Dù có thành công hay thất bại, tôi luôn tin tưởng và ủng hộ Phong với mọi quyết định. Sau nếu còn gặp thì mong rằng không chỉ thấy nhau ở trên bàn nhậu mà còn phải gặp nhau ở trên đỉnh của ngọn núi một cách ngạo nghễ nhưng vẫn ung dung, tự tại.</div>
+          <div class="space-y-3 text-justify text-slate-800/90 font-serif leading-relaxed">
+            <p>Sang chẳng có món đồ gì xịn hay đắt tiền để tặng Phong làm kỷ niệm. Chỉ có chiếc dây treo đan từ chỉ ngũ sắc này, được thầy trụ trì chùa Sùng Phúc Bắc Ninh mua trong chuyến đi Tây Tạng rồi tặng tôi vào ngày đầu tiên hai thầy trò gặp nhau.</p>
+            <p>Trong Phật giáo, những đồ vật đan từ chỉ ngũ sắc thường tượng trưng cho sự bình an, may mắn và được chở che, hộ mệnh. Từ ngày nhận về, tôi vẫn treo chiếc dây bên phòng thờ, cũng thường để nó bên cạnh những buổi gõ mõ, tụng kinh, trì niệm của tôi. Nếu có sinh ra điều phước điều lành nào thì tôi mong muốn đều chia sẻ ít nhiều cho Phong, mong rằng trong từng bước đường phía trước, Phong và gia đình luôn bình an, khỏe mạnh và hanh thông.</p>
+            <p>Và còn điều nữa, anh em mình đã cùng đi qua một đoạn đường, có những niềm vui đời thường và cả những trầm lặng sẻ chia. Sau này mỗi người lại trở về với nhịp sống riêng. Tôi không hiện diện thường xuyên trong chặng đường sắp tới của ông, nhưng chúc ông luôn khỏe mạnh và sống tốt. Nếu có gõ mõ tụng kinh thì mỗi lần tôi đều xin nguyện hồi hướng chút phước lành có về cho ông và gia đình. Mỗi chuyến đi xa hay những lần đi lại đều được bình an vô sự. Lúc khó khăn sa cơ lỡ vận thì đều có người giúp đỡ. Hôm chẳng may đau ốm thì sẽ gặp được bác sĩ giỏi và chóng khỏe. Đi làm nếu gặp đồng nghiệp xấu hay cám dỗ thì đều đủ tỉnh táo và bản lĩnh để bước qua. Những lúc gánh nặng cơm áo đè vai vẫn giữ luôn kiên trì, không bao giờ cảm thấy cô độc hay tuyệt vọng.</p>
+            <p>Anh em mình lại tiếp tục quay lại guồng quay cuộc sống, tiếp tục leo tiếp ngọn núi của riêng mình. Chỉ mong Phong luôn làm chủ trong từng quyết định của mình, luôn bình tĩnh nếu trở ngại đến vì mọi thứ đã năm trong sự tính toán. Dù có thành công hay thất bại, tôi luôn tin tưởng và ủng hộ Phong với mọi quyết định. Sau nếu còn gặp thì mong rằng không chỉ thấy nhau ở trên bàn nhậu mà còn phải gặp nhau ở trên đỉnh của ngọn núi một cách ngạo nghễ nhưng vẫn ung dung, tự tại.</p>
+          </div>
 
           <div class="pt-3 border-t border-amber-800/15 flex flex-col items-end">
             <span class="text-xs text-amber-900/70 font-sans italic">Trân trọng & Luôn tin tưởng,</span>
@@ -134,7 +149,7 @@ Anh em mình lại tiếp tục quay lại guồng quay cuộc sống, tiếp t�
         </div>
 
         <div class="pt-3 border-t border-amber-800/15 mt-2 shrink-0">
-          <button onclick="goToScreen(5)" class="w-full py-2.5 px-4 bg-gradient-to-r from-rose-600 to-amber-600 text-white font-sans font-semibold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1.5 shadow-md">
+          <button onclick="startVideoLoading()" class="w-full py-2.5 px-4 bg-gradient-to-r from-rose-600 to-amber-600 text-white font-sans font-semibold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1.5 shadow-md">
             <i data-lucide="film" class="w-4 h-4"></i>
             <span>Đóng thư lại</span>
           </button>
@@ -150,6 +165,11 @@ Anh em mình lại tiếp tục quay lại guồng quay cuộc sống, tiếp t�
         <source src="memory-video.mp4" type="video/mp4">
         <source src="https://lh3.googleusercontent.com/d/1KnogNzcxenQl3LLvK8298pkpq0oF-XRg" type="video/mp4">
       </video>
+
+      <!-- CHỮ CHÈN 3 GIÂY CUỐI VIDEO (再见) -->
+      <div id="video-goodbye-text" class="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-700 opacity-0 z-30">
+        <span class="text-6xl font-serif text-white/90 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] tracking-widest animate-pulse">再见</span>
+      </div>
 
       <!-- Option 2: Google Drive Iframe Embed Fallback -->
       <div id="iframe-container" class="w-full h-full hidden">
@@ -199,10 +219,21 @@ Anh em mình lại tiếp tục quay lại guồng quay cuộc sống, tiếp t�
     const video = document.getElementById('memory-video');
     const iframeContainer = document.getElementById('iframe-container');
     const iframe = document.getElementById('gdrive-iframe');
+    const bgAudio = document.getElementById('bg-audio');
+    const goodbyeText = document.getElementById('video-goodbye-text');
 
     if (video) {
       video.onended = function() {
+        if (goodbyeText) goodbyeText.classList.remove('opacity-100');
         showVideoOverlay();
+      };
+
+      video.ontimeupdate = function() {
+        if (video.duration && (video.duration - video.currentTime <= 3.5)) {
+          if (goodbyeText) goodbyeText.classList.add('opacity-100');
+        } else {
+          if (goodbyeText) goodbyeText.classList.remove('opacity-100');
+        }
       };
 
       video.onerror = function() {
@@ -217,10 +248,37 @@ Anh em mình lại tiếp tục quay lại guồng quay cuộc sống, tiếp t�
       if (iframe) iframe.src = "https://drive.google.com/file/d/1KnogNzcxenQl3LLvK8298pkpq0oF-XRg/preview";
     }
 
+    function startVideoLoading() {
+      const loader = document.getElementById('loading-screen');
+      if (loader) {
+        loader.classList.remove('opacity-0', 'pointer-events-none');
+        loader.classList.add('opacity-100');
+      }
+
+      if (video) {
+        video.load();
+      }
+
+      setTimeout(() => {
+        if (loader) {
+          loader.classList.remove('opacity-100');
+          loader.classList.add('opacity-0', 'pointer-events-none');
+        }
+        goToScreen(5);
+      }, 2500);
+    }
+
     function goToScreen(screenNum) {
+      // Dừng nhạc nền khi rời màn 4
+      if (screenNum !== 4 && bgAudio) {
+        bgAudio.pause();
+        bgAudio.currentTime = 0;
+      }
+
       if (video && screenNum !== 5) {
         video.pause();
         video.currentTime = 0;
+        if (goodbyeText) goodbyeText.classList.remove('opacity-100');
       }
       if (iframe && screenNum !== 5) {
         iframe.src = "";
@@ -242,6 +300,9 @@ Anh em mình lại tiếp tục quay lại guồng quay cuộc sống, tiếp t�
 
       if (screenNum === 4) {
         confetti({ particleCount: 80, spread: 90, origin: { y: 0.6 }, colors: ['#f59e0b', '#ec4899', '#8b5cf6', '#10b981'] });
+        if (bgAudio) {
+          bgAudio.play().catch(e => console.log("Audio autoplay prevented", e));
+        }
       }
 
       if (screenNum === 5) {
@@ -281,6 +342,7 @@ Anh em mình lại tiếp tục quay lại guồng quay cuộc sống, tiếp t�
 
     function replayVideo() {
       hideVideoOverlay();
+      if (goodbyeText) goodbyeText.classList.remove('opacity-100');
       if (video && video.style.display !== 'none') {
         video.currentTime = 0;
         video.play();
