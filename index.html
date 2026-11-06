@@ -37,14 +37,22 @@
     
     <!-- MÀN HÌNH 1: Phong Thư -->
     <div id="screen-1" class="absolute inset-0 w-full h-full bg-gradient-to-b from-rose-50 via-white to-amber-50 flex flex-col items-center justify-center p-6 text-center transition-all duration-500 z-30">
-      <div class="w-full max-w-[320px] bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-rose-100 flex flex-col items-center">
-        <div class="w-20 h-20 bg-gradient-to-tr from-rose-500 to-amber-500 rounded-3xl flex items-center justify-center text-white mb-5 shadow-lg shadow-rose-500/25">
-          <i data-lucide="mail-heart" class="w-10 h-10"></i>
+      <div class="w-full max-w-[320px] bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-rose-100 flex flex-col items-center animate-pulse-subtle">
+        
+        <!-- Ô VUÔNG ICON PHONG THƯ SANG TRỌNG -->
+        <div class="w-24 h-24 bg-gradient-to-tr from-rose-500 via-pink-500 to-amber-500 rounded-3xl flex items-center justify-center text-white mb-5 shadow-xl shadow-rose-500/30 relative overflow-hidden group">
+          <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <i data-lucide="mail-check" class="w-12 h-12 relative z-10 drop-shadow-md"></i>
+          <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center text-slate-900 shadow-md">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+          </div>
         </div>
-        <span class="text-[11px] font-bold uppercase tracking-wider text-rose-500 bg-rose-50 px-3 py-1 rounded-full mb-3 border border-rose-100">Thiệp Thông Điệp</span>
+
+        <span class="text-[11px] font-bold uppercase tracking-wider text-rose-500 bg-rose-50 px-3.5 py-1 rounded-full mb-3 border border-rose-100/80">Thiệp Thông Điệp</span>
         <h1 class="text-base font-bold text-slate-900 mb-2 leading-snug">Bạn nhận được 1 bức thư từ Sang</h1>
         <p class="text-xs text-slate-500 mb-6 leading-relaxed">Nhấn nút bên dưới để mở phong thư xem chi tiết.</p>
-        <button onclick="goToScreen(2)" class="w-full py-3.5 px-6 bg-gradient-to-r from-rose-500 to-amber-500 text-white font-bold rounded-2xl shadow-lg shadow-rose-500/25 active:scale-95 transition flex items-center justify-center gap-2">
+        
+        <button onclick="goToScreen(2)" class="w-full py-3.5 px-6 bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 text-white font-bold rounded-2xl shadow-lg shadow-rose-500/25 active:scale-95 transition flex items-center justify-center gap-2">
           <i data-lucide="mail-open" class="w-4 h-4"></i>
           <span>Mở Bức Thư</span>
         </button>
@@ -57,8 +65,8 @@
         <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-inner mb-3">
           <img id="img-cat" src="cat-photo.png" alt="Mèo bất ngờ" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'500\' viewBox=\'0 0 400 500\'><rect width=\'400\' height=\'500\' fill=\'%231e293b\'/><text x=\'200\' y=\'230\' font-family=\'sans-serif\' font-size=\'60\' text-anchor=\'middle\'>🐱</text><text x=\'200\' y=\'290\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'18\' fill=\'%23f1f5f9\' text-anchor=\'middle\'>cat-photo.png</text><text x=\'200\' y=\'320\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%2394a3b8\' text-anchor=\'middle\'>[Ảnh chú mèo giơ ngón tay]</text></svg>'">
         </div>
-        <h3 class="text-sm font-bold text-slate-800 mb-1">Tadaaa! 🐱</h3>
-        <p class="text-xs text-slate-500 mb-4">Nhận thư xong thấy sao nè?</p>
+        <h3 class="text-base font-extrabold text-rose-600 mb-1">F*ck youuuu!!! 🐱</h3>
+        <p class="text-xs text-slate-600 font-medium mb-4">Choá Phonggggg ăn cứtt</p>
         <div class="w-full space-y-2">
           <button onclick="goToScreen(4)" class="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-rose-500 text-white font-bold rounded-xl text-xs shadow-md active:scale-95 transition flex items-center justify-center gap-1.5">
             <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
@@ -78,8 +86,8 @@
         <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-inner mb-3">
           <img id="img-sang-box" src="sang-box.png" alt="Sang hộp quà" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'500\' viewBox=\'0 0 400 500\'><rect width=\'400\' height=\'500\' fill=\'%23881337\'/><text x=\'200\' y=\'230\' font-family=\'sans-serif\' font-size=\'60\' text-anchor=\'middle\'>🎁</text><text x=\'200\' y=\'290\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'18\' fill=\'%23f1f5f9\' text-anchor=\'middle\'>sang-box.png</text><text x=\'200\' y=\'320\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23fca5a5\' text-anchor=\'middle\'>[Ảnh anh Sang chui từ hộp quà]</text></svg>'">
         </div>
-        <h3 class="text-sm font-bold text-rose-600 mb-1">Dám chửi anh Sang à? 🎁</h3>
-        <p class="text-xs text-slate-500 mb-4">Anh Sang chui từ hộp quà ra đây nè!</p>
+        <h3 class="text-base font-extrabold text-rose-600 mb-1">Láo nháo cáo ăn chồn à 🎁</h3>
+        <p class="text-xs text-slate-600 font-medium mb-4">Phạt tét đít bây giờ</p>
         <div class="w-full space-y-2">
           <button onclick="goToScreen(4)" class="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-rose-500 text-white font-bold rounded-xl text-xs shadow-md active:scale-95 transition flex items-center justify-center gap-1.5">
             <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
@@ -99,11 +107,11 @@
         <div class="flex items-center justify-between pb-3 border-b border-amber-800/15 mb-3 shrink-0">
           <div class="flex items-center gap-2">
             <div class="w-7 h-7 rounded-full bg-amber-700/10 flex items-center justify-center text-amber-800">
-              <i data-lucide="sparkle" class="w-4 h-4"></i>
+              <i data-lucide="scroll" class="w-4 h-4"></i>
             </div>
-            <span class="text-xs font-bold uppercase tracking-wider text-amber-900">Tâm Thư Chân Thành</span>
+            <!-- TITLE ĐÃ SỬA THEO YÊU CẦU -->
+            <span class="text-xs font-bold tracking-tight text-amber-900 uppercase">V/v thư kính chúc đồng chí</span>
           </div>
-          <span class="text-[10px] text-amber-800/60 italic font-serif">Sang & Phong</span>
         </div>
         
         <div class="flex-1 overflow-y-auto no-scrollbar pr-1 space-y-3 font-serif text-slate-800 text-[12px] leading-relaxed">
@@ -122,7 +130,7 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
 
           <!-- KÍCH THƯỚC FULL WIDTH CỦA ẢNH ZAIJIAN PHÍA CUỐI THƯ -->
           <div class="pt-2">
-            <img id="img-goodbye" src="goodbye.png" alt="再见" class="w-full h-auto rounded-2xl shadow-md border border-amber-900/20 object-cover opacity-95" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'300\' viewBox=\'0 0 600 300\'><rect width=\'600\' height=\'300\' fill=\'%23334155\'/><circle cx=\'100\' cy='80' r='3' fill=\'%23ffffff\' opacity=\'0.3\'/><circle cx=\'480\' cy=\'220\' r='4' fill=\'%23ffffff\' opacity=\'0.4\'/><text x=\'300\' y=\'185\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'90\' fill=\'%23ffffff\' text-anchor=\'middle\'>再见</text></svg>'">
+            <img id="img-goodbye" src="goodbye.png" alt="再见" class="w-full h-auto rounded-2xl shadow-md border border-amber-900/20 object-cover opacity-95" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'300\' viewBox=\'0 0 600 300\'><rect width=\'600\' height=\'300\' fill=\'%23334155\'/><circle cx=\'100\' cy=\'80\' r=\'3\' fill=\'%23ffffff\' opacity=\'0.3\'/><circle cx=\'480\' cy=\'220\' r=\'4\' fill=\'%23ffffff\' opacity=\'0.4\'/><text x=\'300\' y=\'185\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'90\' fill=\'%23ffffff\' text-anchor=\'middle\'>再见</text></svg>'">
           </div>
         </div>
 
@@ -135,34 +143,39 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
       </div>
     </div>
 
-    <!-- MÀN HÌNH 5: PHÁT VIDEO KỶ NIỆM GOOGLE DRIVE FULL SCREEN -->
+    <!-- MÀN HÌNH 5: PHÁT VIDEO KỶ NIỆM HYBRID -->
     <div id="screen-5" class="absolute inset-0 w-full h-full bg-black flex flex-col justify-center items-center opacity-0 pointer-events-none scale-95 transition-all duration-500 z-50 overflow-hidden select-none">
       
-      <!-- Video Player Direct Link Google Drive + Fallback Local MP4 -->
+      <!-- Option 1: Native HTML5 Video Player -->
       <video id="memory-video" class="w-full h-full object-cover" playsinline webkit-playsinline preload="auto">
-        <source src="https://lh3.googleusercontent.com/d/1KnogNzcxenQl3LLvK8298pkpq0oF-XRg" type="video/mp4">
         <source src="memory-video.mp4" type="video/mp4">
+        <source src="https://lh3.googleusercontent.com/d/1KnogNzcxenQl3LLvK8298pkpq0oF-XRg" type="video/mp4">
       </video>
 
-      <!-- Header trên cùng màn hình Video -->
-      <div class="absolute top-7 left-0 right-0 z-40 px-4 flex items-center justify-between text-white">
+      <!-- Option 2: Google Drive Iframe Embed Fallback -->
+      <div id="iframe-container" class="w-full h-full hidden">
+        <iframe id="gdrive-iframe" src="" class="w-full h-full border-0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+
+      <!-- HEADER VIDEO ĐÃ ĐỔI TÊN THÀNH MINH HENRY -->
+      <div class="absolute top-7 left-0 right-0 z-40 px-4 flex items-center justify-between text-white bg-gradient-to-b from-black/70 to-transparent pb-4">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center font-bold text-xs text-slate-900 shadow-md">H</div>
-          <span class="text-xs font-bold drop-shadow-md text-white">Thước Phim Kỷ Niệm</span>
+          <div class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center font-bold text-xs text-slate-900 shadow-md">M</div>
+          <span class="text-xs font-bold drop-shadow-md text-white">Minh Henry</span>
         </div>
         <button onclick="goToScreen(1)" class="p-1.5 rounded-full bg-black/50 text-white backdrop-blur-md active:scale-95 transition">
           <i data-lucide="x" class="w-4 h-4"></i>
         </button>
       </div>
 
-      <!-- Overlay khi Video kết thúc (Đứng yên ở khung hình cuối) -->
+      <!-- OVERLAY POPUP KẾT THÚC ĐÃ ĐỔI THÀNH "HẸN HỘI NGỘ" -->
       <div id="video-end-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center opacity-0 pointer-events-none transition-all duration-500 z-40">
-        <div class="w-full max-w-[280px] bg-slate-900/90 border border-slate-700/60 rounded-3xl p-5 shadow-2xl flex flex-col items-center animate-pulse-subtle">
+        <div class="w-full max-w-[290px] bg-slate-900/90 border border-slate-700/60 rounded-3xl p-5 shadow-2xl flex flex-col items-center animate-pulse-subtle">
           <div class="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-full flex items-center justify-center mb-3">
-            <i data-lucide="heart" class="w-6 h-6 fill-amber-400"></i>
+            <i data-lucide="compass" class="w-6 h-6 stroke-[2.5]"></i>
           </div>
-          <h3 class="text-sm font-bold text-white mb-1">Trọn Vẹn Kỷ Niệm</h3>
-          <p class="text-[11px] text-slate-300 mb-5 leading-relaxed">Mong rằng những bước đường tiếp theo luôn bình an và thành công!</p>
+          <h3 class="text-base font-bold text-white mb-2">Hẹn hội ngộ</h3>
+          <p class="text-xs text-slate-300 mb-5 leading-relaxed font-serif italic">Mong những thước phim sẽ còn tiếp tục nối dài nữa. Bảo trọng</p>
           
           <div class="w-full space-y-2">
             <button onclick="replayVideo()" class="w-full py-2.5 px-4 bg-gradient-to-r from-amber-500 to-rose-500 text-white font-bold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1.5 shadow-md">
@@ -184,20 +197,34 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
   <script>
     lucide.createIcons();
 
-    window.onload = function() {
-      const video = document.getElementById('memory-video');
-      if (video) {
-        video.onended = function() {
-          showVideoOverlay();
-        };
-      }
-    };
+    const video = document.getElementById('memory-video');
+    const iframeContainer = document.getElementById('iframe-container');
+    const iframe = document.getElementById('gdrive-iframe');
+
+    if (video) {
+      video.onended = function() {
+        showVideoOverlay();
+      };
+
+      video.onerror = function() {
+        console.log("HTML5 Video failed, switching to Google Drive Iframe player...");
+        useIframePlayer();
+      };
+    }
+
+    function useIframePlayer() {
+      if (video) video.style.display = 'none';
+      if (iframeContainer) iframeContainer.classList.remove('hidden');
+      if (iframe) iframe.src = "https://drive.google.com/file/d/1KnogNzcxenQl3LLvK8298pkpq0oF-XRg/preview";
+    }
 
     function goToScreen(screenNum) {
-      const video = document.getElementById('memory-video');
       if (video && screenNum !== 5) {
         video.pause();
         video.currentTime = 0;
+      }
+      if (iframe && screenNum !== 5) {
+        iframe.src = "";
       }
 
       for (let i = 1; i <= 5; i++) {
@@ -221,11 +248,18 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
       if (screenNum === 5) {
         if (activeSc) activeSc.classList.add('z-50');
         hideVideoOverlay();
+
         if (video) {
           video.currentTime = 0;
-          video.play().catch(err => {
-            console.log("Autoplay blocked:", err);
-          });
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(err => {
+              console.log("Autoplay error, fallback to Iframe:", err);
+              useIframePlayer();
+            });
+          }
+        } else {
+          useIframePlayer();
         }
       }
     }
@@ -248,12 +282,16 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
 
     function replayVideo() {
       hideVideoOverlay();
-      const video = document.getElementById('memory-video');
-      if (video) {
+      if (video && video.style.display !== 'none') {
         video.currentTime = 0;
         video.play();
+      } else if (iframe) {
+        iframe.src = "https://drive.google.com/file/d/1KnogNzcxenQl3LLvK8298pkpq0oF-XRg/preview";
       }
     }
   </script>
 </body>
 </html>
+```
+
+Mã nguồn mới đã được cập nhật thành công vào file `index.html`. Bạn chỉ cần chọn toàn bộ mã nguồn vừa tạo, copy dán đè vào `index.html` trên GitHub là Vercel sẽ tự động làm phần còn lại!
