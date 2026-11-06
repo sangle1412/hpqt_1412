@@ -23,15 +23,19 @@
       background-size: 30px 30px;
       background-position: 0 0, 15px 15px;
     }
+    @keyframes pulseSubtle {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    .animate-pulse-subtle { animation: pulseSubtle 2.5s ease-in-out infinite; }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-800 antialiased font-sans select-none h-[100dvh] w-full flex items-center justify-center overflow-hidden">
 
-  <audio id="bg-music" loop src="bg-music.mp3"></audio>
-
+  <!-- FRAME MOBILE SIMULATOR -->
   <div class="w-full max-w-[430px] h-[100dvh] sm:h-[844px] bg-slate-900 flex flex-col justify-center items-center relative overflow-hidden shadow-2xl sm:rounded-[40px]">
     
-    <!-- MÀN HÌNH 1 -->
+    <!-- MÀN HÌNH 1: Phong Thư -->
     <div id="screen-1" class="absolute inset-0 w-full h-full bg-gradient-to-b from-rose-50 via-white to-amber-50 flex flex-col items-center justify-center p-6 text-center transition-all duration-500 z-30">
       <div class="w-full max-w-[320px] bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-rose-100 flex flex-col items-center">
         <div class="w-20 h-20 bg-gradient-to-tr from-rose-500 to-amber-500 rounded-3xl flex items-center justify-center text-white mb-5 shadow-lg shadow-rose-500/25">
@@ -47,11 +51,11 @@
       </div>
     </div>
 
-    <!-- MÀN HÌNH 2 -->
+    <!-- MÀN HÌNH 2: Trò Đùa Mèo -->
     <div id="screen-2" class="absolute inset-0 w-full h-full bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center p-5 text-center opacity-0 pointer-events-none scale-95 transition-all duration-500 z-20">
       <div class="w-full max-w-[330px] bg-white rounded-3xl p-4 shadow-2xl flex flex-col items-center border border-slate-100">
         <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-inner mb-3">
-          <img id="img-cat" src="cat-photo.png" alt="Mèo bất ngờ" class="w-full h-full object-cover">
+          <img id="img-cat" src="cat-photo.png" alt="Mèo bất ngờ" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'500\' viewBox=\'0 0 400 500\'><rect width=\'400\' height=\'500\' fill=\'%231e293b\'/><text x=\'200\' y=\'230\' font-family=\'sans-serif\' font-size=\'60\' text-anchor=\'middle\'>🐱</text><text x=\'200\' y=\'290\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'18\' fill=\'%23f1f5f9\' text-anchor=\'middle\'>cat-photo.png</text><text x=\'200\' y=\'320\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%2394a3b8\' text-anchor=\'middle\'>[Ảnh chú mèo giơ ngón tay]</text></svg>'">
         </div>
         <h3 class="text-sm font-bold text-slate-800 mb-1">Tadaaa! 🐱</h3>
         <p class="text-xs text-slate-500 mb-4">Nhận thư xong thấy sao nè?</p>
@@ -68,11 +72,11 @@
       </div>
     </div>
 
-    <!-- MÀN HÌNH 3 -->
+    <!-- MÀN HÌNH 3: Trò Đùa Sang Hộp Quà -->
     <div id="screen-3" class="absolute inset-0 w-full h-full bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-5 text-center opacity-0 pointer-events-none scale-95 transition-all duration-500 z-20">
       <div class="w-full max-w-[330px] bg-white rounded-3xl p-4 shadow-2xl flex flex-col items-center border border-slate-100">
         <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-inner mb-3">
-          <img id="img-sang-box" src="sang-box.png" alt="Sang hộp quà" class="w-full h-full object-cover">
+          <img id="img-sang-box" src="sang-box.png" alt="Sang hộp quà" class="w-full h-full object-cover" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'500\' viewBox=\'0 0 400 500\'><rect width=\'400\' height=\'500\' fill=\'%23881337\'/><text x=\'200\' y=\'230\' font-family=\'sans-serif\' font-size=\'60\' text-anchor=\'middle\'>🎁</text><text x=\'200\' y=\'290\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'18\' fill=\'%23f1f5f9\' text-anchor=\'middle\'>sang-box.png</text><text x=\'200\' y=\'320\' font-family=\'sans-serif\' font-size=\'12\' fill=\'%23fca5a5\' text-anchor=\'middle\'>[Ảnh anh Sang chui từ hộp quà]</text></svg>'">
         </div>
         <h3 class="text-sm font-bold text-rose-600 mb-1">Dám chửi anh Sang à? 🎁</h3>
         <p class="text-xs text-slate-500 mb-4">Anh Sang chui từ hộp quà ra đây nè!</p>
@@ -89,7 +93,7 @@
       </div>
     </div>
 
-    <!-- MÀN HÌNH 4 -->
+    <!-- MÀN HÌNH 4: Bức Thư Chính & Ảnh Goodbye Full Width -->
     <div id="screen-4" class="absolute inset-0 w-full h-full bg-slate-950 flex flex-col items-center justify-center p-4 text-left opacity-0 pointer-events-none scale-95 transition-all duration-700 z-40 overflow-hidden">
       <div class="w-full max-w-[350px] max-h-[92%] bg-parchment rounded-3xl p-5 shadow-2xl border border-amber-200/60 flex flex-col relative z-10 overflow-hidden">
         <div class="flex items-center justify-between pb-3 border-b border-amber-800/15 mb-3 shrink-0">
@@ -101,70 +105,78 @@
           </div>
           <span class="text-[10px] text-amber-800/60 italic font-serif">Sang & Phong</span>
         </div>
+        
         <div class="flex-1 overflow-y-auto no-scrollbar pr-1 space-y-3 font-serif text-slate-800 text-[12px] leading-relaxed">
           <p class="font-bold text-amber-900 text-sm italic font-sans">Thân tặng Hp qt,</p>
-          <div class="whitespace-pre-line text-justify text-slate-800/90 font-serif leading-relaxed">Thân tặng Hp qt,
-Sang chẳng có đồ gì sịn hay đắt tiền, có chiếc dây treo đan từ chỉ ngũ sắc này, được thầy trụ trì chùa Sùng Phúc - Bắc Ninh mua khi đi Tây Tạng và tặng tôi vào ngày đầu gặp thầy. Trong Phật giáo các đồ đan từ chỉ ngũ sắc tượng trưng cho sự bình an, may mắn và được hộ mệnh. Khi cầm về tôi để ở bên phòng thờ nên cũng hay được nghe tôi tụng kinh trì niệm. Phước lành sinh ra là để chia sẻ, nên tôi muốn gửi trao lại duyên lành này cho Phong, mong rằng trong từng bước đường phía trước, Phong và gia đình luôn bình an, khỏe mạnh và hanh thông.
+          <div class="whitespace-pre-line text-justify text-slate-800/90 font-serif leading-relaxed">Sang chẳng có đồ gì sịn hay đắt tiền, có chiếc dây treo đan từ chỉ ngũ sắc này, được thầy trụ trì chùa Sùng Phúc - Bắc Ninh mua khi đi Tây Tạng và tặng tôi vào ngày đầu gặp thầy. Trong Phật giáo các đồ đan từ chỉ ngũ sắc tượng trưng cho sự bình an, may mắn và được hộ mệnh. Khi cầm về tôi để ở bên phòng thờ nên cũng hay được nghe tôi tụng kinh trì niệm. Phước lành sinh ra là để chia sẻ, nên tôi muốn gửi trao lại duyên lành này cho Phong, mong rằng trong từng bước đường phía trước, Phong và gia đình luôn bình an, khỏe mạnh và hanh thông.
 
 Và còn điều nữa, anh em mình đã cùng đi qua một đoạn đường, có những niềm vui đời thường và cả những trầm lặng sẻ chia. Sau này mỗi người lại trở về với nhịp sống riêng. Tôi vắng mặt trong chặng đường sắp tới của ông, nhưng từ nay, mỗi lần tụng niệm, tôi đều xin nguyện hồi hướng chút phước lành này về cho Phong và gia đình. Đi đường đi xá luôn bình an vô sự. Lúc khó khăn sa cơ lỡ vận thì đều có người giúp đỡ. Hôm chẳng may đau ốm thì sẽ gặp được bác sĩ giỏi và chóng khỏe. Đi làm nếu gặp đồng nghiệp xấu thì đều đủ tỉnh táo và bản lĩnh để bước qua. Những lúc gánh nặng cơm áo đè vai vẫn giữ được sức bền, không bao giờ cảm thấy cô độc hay tuyệt vọng.
 
 Anh em mình lại tiếp tục quay lại guồng quay, tiếp tục leo tiếp ngọn núi dốc cuộc sống, mong sau này nếu còn gặp thì không chỉ thấy nhau ở trên bàn nhậu mà còn phải gặp nhau ở trên đỉnh của ngọn núi kia nhé.
 Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong trong cuộc sống.</div>
+
           <div class="pt-3 border-t border-amber-800/15 flex flex-col items-end">
             <span class="text-xs text-amber-900/70 font-sans italic">Trân trọng & Luôn tin tưởng,</span>
             <span class="text-lg font-['Caveat'] font-bold text-amber-900">Sang</span>
           </div>
 
-          <!-- KÍCH THƯỚC BÉ XINH VỪA VẶN CỦA ẢNH ZAIJIAN PHÍA CUỐI THƯ -->
-          <div class="pt-2 flex justify-center">
-            <img id="img-goodbye" src="goodbye.png" alt="再见" class="w-28 h-auto rounded-xl shadow-md border border-amber-900/20 object-cover opacity-95">
+          <!-- KÍCH THƯỚC FULL WIDTH CỦA ẢNH ZAIJIAN PHÍA CUỐI THƯ -->
+          <div class="pt-2">
+            <img id="img-goodbye" src="goodbye.png" alt="再见" class="w-full h-auto rounded-2xl shadow-md border border-amber-900/20 object-cover opacity-95" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'300\' viewBox=\'0 0 600 300\'><rect width=\'600\' height=\'300\' fill=\'%23334155\'/><circle cx=\'100\' cy='80' r='3' fill=\'%23ffffff\' opacity=\'0.3\'/><circle cx=\'480\' cy=\'220\' r='4' fill=\'%23ffffff\' opacity=\'0.4\'/><text x=\'300\' y=\'185\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'90\' fill=\'%23ffffff\' text-anchor=\'middle\'>再见</text></svg>'">
           </div>
         </div>
+
         <div class="pt-3 border-t border-amber-800/15 mt-2 shrink-0">
           <button onclick="goToScreen(5)" class="w-full py-2.5 px-4 bg-gradient-to-r from-rose-600 to-amber-600 text-white font-sans font-semibold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1.5 shadow-md">
-            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <i data-lucide="film" class="w-4 h-4"></i>
             <span>Đóng thư lại</span>
           </button>
         </div>
       </div>
     </div>
 
-    <!-- MÀN HÌNH 5: INSTAGRAM STORY -->
-    <div id="screen-5" class="absolute inset-0 w-full h-full bg-black flex flex-col justify-between opacity-0 pointer-events-none scale-95 transition-all duration-500 z-50 overflow-hidden select-none">
-      <div class="absolute top-3 left-0 right-0 z-40 px-2.5 flex gap-1 items-center" id="story-progress-container"></div>
+    <!-- MÀN HÌNH 5: PHÁT VIDEO KỶ NIỆM GOOGLE DRIVE FULL SCREEN -->
+    <div id="screen-5" class="absolute inset-0 w-full h-full bg-black flex flex-col justify-center items-center opacity-0 pointer-events-none scale-95 transition-all duration-500 z-50 overflow-hidden select-none">
+      
+      <!-- Video Player Direct Link Google Drive + Fallback Local MP4 -->
+      <video id="memory-video" class="w-full h-full object-cover" playsinline webkit-playsinline preload="auto">
+        <source src="https://lh3.googleusercontent.com/d/1KnogNzcxenQl3LLvK8298pkpq0oF-XRg" type="video/mp4">
+        <source src="memory-video.mp4" type="video/mp4">
+      </video>
+
+      <!-- Header trên cùng màn hình Video -->
       <div class="absolute top-7 left-0 right-0 z-40 px-4 flex items-center justify-between text-white">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 to-rose-500 p-0.5 shadow-md">
-            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center font-bold text-xs text-amber-400">H</div>
+          <div class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center font-bold text-xs text-slate-900 shadow-md">H</div>
+          <span class="text-xs font-bold drop-shadow-md text-white">Thước Phim Kỷ Niệm</span>
+        </div>
+        <button onclick="goToScreen(1)" class="p-1.5 rounded-full bg-black/50 text-white backdrop-blur-md active:scale-95 transition">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Overlay khi Video kết thúc (Đứng yên ở khung hình cuối) -->
+      <div id="video-end-overlay" class="absolute inset-0 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center opacity-0 pointer-events-none transition-all duration-500 z-40">
+        <div class="w-full max-w-[280px] bg-slate-900/90 border border-slate-700/60 rounded-3xl p-5 shadow-2xl flex flex-col items-center animate-pulse-subtle">
+          <div class="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-full flex items-center justify-center mb-3">
+            <i data-lucide="heart" class="w-6 h-6 fill-amber-400"></i>
           </div>
-          <div>
-            <span class="text-xs font-bold block drop-shadow-md text-white">Hp qt</span>
-            <span class="text-[9px] text-slate-300 block -mt-0.5" id="story-index-label">1 / 20</span>
+          <h3 class="text-sm font-bold text-white mb-1">Trọn Vẹn Kỷ Niệm</h3>
+          <p class="text-[11px] text-slate-300 mb-5 leading-relaxed">Mong rằng những bước đường tiếp theo luôn bình an và thành công!</p>
+          
+          <div class="w-full space-y-2">
+            <button onclick="replayVideo()" class="w-full py-2.5 px-4 bg-gradient-to-r from-amber-500 to-rose-500 text-white font-bold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1.5 shadow-md">
+              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+              <span>Xem lại video</span>
+            </button>
+            <button onclick="goToScreen(1)" class="w-full py-2.5 px-4 bg-slate-800 text-slate-300 font-semibold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1">
+              <i data-lucide="home" class="w-3.5 h-3.5"></i>
+              <span>Về màn hình chính</span>
+            </button>
           </div>
         </div>
-        <div class="flex items-center gap-2">
-          <button onclick="toggleMusic()" class="p-1.5 rounded-full bg-black/50 text-white backdrop-blur-md">
-            <i data-lucide="music" id="music-icon" class="w-3.5 h-3.5 text-amber-400"></i>
-          </button>
-          <button onclick="toggleStoryPause()" class="p-1.5 rounded-full bg-black/50 text-white backdrop-blur-md">
-            <i data-lucide="pause" id="story-pause-icon" class="w-3.5 h-3.5"></i>
-          </button>
-          <button onclick="goToScreen(1)" class="p-1.5 rounded-full bg-black/50 text-white backdrop-blur-md">
-            <i data-lucide="x" class="w-4 h-4"></i>
-          </button>
-        </div>
       </div>
-      <div class="w-full h-full relative flex items-center justify-center bg-black">
-        <img id="story-display-img" src="" class="w-full h-full object-cover transition-opacity duration-300" alt="Story photo">
-        <video id="story-display-video" src="" class="w-full h-full object-cover hidden" playsinline muted autoplay></video>
-        <div class="absolute inset-0 flex z-30">
-          <div onclick="prevStory()" class="w-1/3 h-full cursor-pointer"></div>
-          <div onclick="nextStory()" class="w-2/3 h-full cursor-pointer"></div>
-        </div>
-      </div>
-      <div class="absolute bottom-6 left-0 right-0 z-40 px-4 text-center pointer-events-none">
-        <p id="story-caption" class="text-[11px] text-white/95 bg-black/60 backdrop-blur-md py-2 px-4 rounded-full inline-block border border-white/10 shadow-xl font-medium">🎵 Photograph ✨</p>
-      </div>
+
     </div>
 
   </div>
@@ -172,57 +184,20 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
   <script>
     lucide.createIcons();
 
-    const TOTAL_STORIES = 20;
-    const STORY_DURATION = 3000;
-    let storyIndex = 0;
-    let storyTimer = null;
-    let isStoryPaused = false;
-
-    const storyMediaList = Array.from({length: TOTAL_STORIES}, (_, i) => ({
-      id: i + 1,
-      type: (i === 4 || i === 12) ? 'video' : 'image',
-      localSrc: `story-${i + 1}.${(i === 4 || i === 12) ? 'mp4' : 'jpg'}`,
-      demoSrc: (i === 4 || i === 12) 
-        ? 'https://assets.mixkit.co/videos/preview/mixkit-friends-having-fun-at-a-party-40810-large.mp4' 
-        : `https://images.unsplash.com/photo-${[
-            '1511632765486-a01980e01a18', '1529156069898-49953e39b3ac', '1517048676732-d65bc937f952',
-            '1492684223066-81342ee5ff30', '1539635278303-d4002c07eae3', '1491438590914-bc09fcaaf77a',
-            '1522202176988-66273c2fd55f', '1494774157365-9e04c6720e47', '1506869640319-fe1a24c4611a',
-            '1517841905240-472988babdf9', '1521737711867-e3b97375f902', '1499209974431-9dac3ea0027f',
-            '1507525428034-b723cf961d3e', '1469474968028-56623f02e42e', '1470071459604-3b5ec3a7fe05',
-            '1501785888041-af3ef285b470', '1472214103451-9374bd1c798e', '1488590528505-98d2b5aba04b',
-            '1465146344425-f00d5f5c8f07', '1500651230702-0e2d8a49d4ad'
-          ][i]}?auto=format&fit=crop&w=600&q=80`,
-      caption: `Photograph ✨`
-    }));
-
-    function startBgMusic() {
-      const audio = document.getElementById('bg-music');
-      if (audio && audio.paused) {
-        audio.play().catch(() => {});
+    window.onload = function() {
+      const video = document.getElementById('memory-video');
+      if (video) {
+        video.onended = function() {
+          showVideoOverlay();
+        };
       }
-    }
-
-    function stopBgMusic() {
-      const audio = document.getElementById('bg-music');
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
-    }
-
-    function toggleMusic() {
-      const audio = document.getElementById('bg-music');
-      if (!audio) return;
-      if (audio.paused) audio.play().catch(() => {});
-      else audio.pause();
-    }
+    };
 
     function goToScreen(screenNum) {
-      if (storyTimer) { clearTimeout(storyTimer); storyTimer = null; }
-
-      if (screenNum !== 5) {
-        stopBgMusic();
+      const video = document.getElementById('memory-video');
+      if (video && screenNum !== 5) {
+        video.pause();
+        video.currentTime = 0;
       }
 
       for (let i = 1; i <= 5; i++) {
@@ -244,111 +219,40 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
       }
 
       if (screenNum === 5) {
-        startBgMusic();
         if (activeSc) activeSc.classList.add('z-50');
-        initStoryProgressBars();
-        playStory(0);
-      }
-    }
-
-    function initStoryProgressBars() {
-      const container = document.getElementById('story-progress-container');
-      if (!container) return;
-      container.innerHTML = '';
-      for (let i = 0; i < TOTAL_STORIES; i++) {
-        const bar = document.createElement('div');
-        bar.className = 'flex-1 h-1 bg-white/30 rounded-full overflow-hidden relative';
-        bar.innerHTML = `<div id="story-bar-fill-${i}" class="h-full bg-white w-0 transition-all duration-100"></div>`;
-        container.appendChild(bar);
-      }
-    }
-
-    function playStory(index) {
-      if (index < 0) index = 0;
-      if (index >= TOTAL_STORIES) { goToScreen(1); return; }
-
-      storyIndex = index;
-      isStoryPaused = false;
-      const pauseIcon = document.getElementById('story-pause-icon');
-      if (pauseIcon) pauseIcon.setAttribute('data-lucide', 'pause');
-      lucide.createIcons();
-
-      const indexLabel = document.getElementById('story-index-label');
-      if (indexLabel) indexLabel.innerText = `${storyIndex + 1} / ${TOTAL_STORIES}`;
-
-      for (let i = 0; i < TOTAL_STORIES; i++) {
-        const fill = document.getElementById(`story-bar-fill-${i}`);
-        if (!fill) continue;
-        fill.style.transition = 'none';
-        if (i < storyIndex) {
-          fill.style.width = '100%';
-        } else if (i === storyIndex) {
-          fill.style.width = '0%';
-          requestAnimationFrame(() => {
-            fill.style.transition = `width ${STORY_DURATION}ms linear`;
-            fill.style.width = '100%';
+        hideVideoOverlay();
+        if (video) {
+          video.currentTime = 0;
+          video.play().catch(err => {
+            console.log("Autoplay blocked:", err);
           });
-        } else {
-          fill.style.width = '0%';
         }
       }
+    }
 
-      const media = storyMediaList[storyIndex];
-      const imgElem = document.getElementById('story-display-img');
-      const videoElem = document.getElementById('story-display-video');
-      const captionElem = document.getElementById('story-caption');
-
-      if (captionElem) captionElem.innerText = `🎵 Photograph ✨ (${storyIndex + 1}/${TOTAL_STORIES})`;
-
-      if (media.type === 'video') {
-        imgElem.classList.add('hidden');
-        videoElem.classList.remove('hidden');
-        videoElem.src = media.demoSrc;
-        videoElem.onended = () => nextStory();
-        videoElem.play().catch(() => {});
-      } else {
-        videoElem.classList.add('hidden');
-        videoElem.pause();
-        imgElem.classList.remove('hidden');
-        imgElem.onerror = () => {
-          imgElem.onerror = () => {
-            imgElem.onerror = null;
-            imgElem.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="700" viewBox="0 0 400 700"><rect width="400" height="700" fill="%231e293b"/><text x="200" y="350" font-family="sans-serif" font-weight="bold" font-size="24" fill="%23f59e0b" text-anchor="middle">Story ' + (storyIndex + 1) + ' ✨</text></svg>';
-          };
-          imgElem.src = media.demoSrc;
-        };
-        imgElem.src = media.localSrc;
+    function showVideoOverlay() {
+      const overlay = document.getElementById('video-end-overlay');
+      if (overlay) {
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
+        overlay.classList.add('opacity-100');
       }
-
-      if (storyTimer) clearTimeout(storyTimer);
-      storyTimer = setTimeout(() => { nextStory(); }, STORY_DURATION);
     }
 
-    function nextStory() {
-      if (storyIndex < TOTAL_STORIES - 1) playStory(storyIndex + 1);
-      else goToScreen(1);
-    }
-
-    function prevStory() {
-      if (storyIndex > 0) playStory(storyIndex - 1);
-      else playStory(0);
-    }
-
-    function toggleStoryPause() {
-      isStoryPaused = !isStoryPaused;
-      const icon = document.getElementById('story-pause-icon');
-      const videoElem = document.getElementById('story-display-video');
-
-      if (isStoryPaused) {
-        if (storyTimer) clearTimeout(storyTimer);
-        if (icon) icon.setAttribute('data-lucide', 'play');
-        if (!videoElem.classList.contains('hidden')) videoElem.pause();
-      } else {
-        if (icon) icon.setAttribute('data-lucide', 'pause');
-        if (!videoElem.classList.contains('hidden')) videoElem.play().catch(() => {});
-        storyTimer = setTimeout(() => { nextStory(); }, STORY_DURATION);
+    function hideVideoOverlay() {
+      const overlay = document.getElementById('video-end-overlay');
+      if (overlay) {
+        overlay.classList.remove('opacity-100');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
       }
-      lucide.createIcons();
+    }
+
+    function replayVideo() {
+      hideVideoOverlay();
+      const video = document.getElementById('memory-video');
+      if (video) {
+        video.currentTime = 0;
+        video.play();
+      }
     }
   </script>
 </body>
