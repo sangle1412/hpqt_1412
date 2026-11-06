@@ -9,7 +9,13 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    html, body { 
+      height: 100%; 
+      height: 100dvh; 
+      overflow: hidden; 
+      touch-action: manipulation; 
+      -webkit-tap-highlight-color: transparent; 
+    }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .bg-parchment {
       background-color: #fdfbf7;
@@ -19,11 +25,11 @@
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-800 antialiased font-sans select-none min-h-screen flex items-center justify-center">
+<body class="bg-slate-950 text-slate-800 antialiased font-sans select-none h-[100dvh] w-full flex items-center justify-center overflow-hidden">
 
   <audio id="bg-music" loop src="bg-music.mp3"></audio>
 
-  <div class="w-full max-w-[430px] h-screen sm:h-[844px] bg-slate-900 flex flex-col justify-center items-center relative overflow-hidden shadow-2xl sm:rounded-[40px]">
+  <div class="w-full max-w-[430px] h-[100dvh] sm:h-[844px] bg-slate-900 flex flex-col justify-center items-center relative overflow-hidden shadow-2xl sm:rounded-[40px]">
     
     <!-- MÀN HÌNH 1 -->
     <div id="screen-1" class="absolute inset-0 w-full h-full bg-gradient-to-b from-rose-50 via-white to-amber-50 flex flex-col items-center justify-center p-6 text-center transition-all duration-500 z-30">
@@ -85,7 +91,7 @@
 
     <!-- MÀN HÌNH 4 -->
     <div id="screen-4" class="absolute inset-0 w-full h-full bg-slate-950 flex flex-col items-center justify-center p-4 text-left opacity-0 pointer-events-none scale-95 transition-all duration-700 z-40 overflow-hidden">
-      <div class="w-full max-w-[350px] max-h-[720px] bg-parchment rounded-3xl p-5 shadow-2xl border border-amber-200/60 flex flex-col relative z-10 overflow-hidden">
+      <div class="w-full max-w-[350px] max-h-[92%] bg-parchment rounded-3xl p-5 shadow-2xl border border-amber-200/60 flex flex-col relative z-10 overflow-hidden">
         <div class="flex items-center justify-between pb-3 border-b border-amber-800/15 mb-3 shrink-0">
           <div class="flex items-center gap-2">
             <div class="w-7 h-7 rounded-full bg-amber-700/10 flex items-center justify-center text-amber-800">
@@ -100,7 +106,7 @@
           <div class="whitespace-pre-line text-justify text-slate-800/90 font-serif leading-relaxed">Thân tặng Hp qt,
 Chẳng có đồ gì sịn hay đắt tiền, có chiếc dây treo đan từ chỉ ngũ sắc này, trong Phật giáo các đồ đan từ chỉ ngũ sắc tượng trưng cho sự bình an, may mắn và được hộ mệnh. Dây treo này là duyên phước do thầy của tôi (trụ trì chùa Sùng Phúc - Bắc Ninh) tặng cho tôi lần đầu gặp, thầy mua khi thầy đi Tây Tạng. Tôi để ở bên phòng thờ nên cũng hay được nghe tôi tụng kinh trì niệm. Phước lành sinh ra là để lan tỏa, nên tôi muốn gửi trao lại duyên lành này cho Phong, mong rằng trong từng bước đường phía trước, Phong và gia đình luôn bình an, khỏe mạnh và hanh thông.
 
-Và còn điều nữa, anh em mình đã cùng đi qua một đoạn đường, có những niềm vui đời thường và cả những trầm lặng sẻ chia. Sau me mỗi người lại trở về với nhịp sống riêng. Tôi vắng mặt trong chặng đường sắp tới của ông, nhưng từ nay, mỗi lần cất tiếng kinh niệm, tôi đều xin nguyện hồi hướng chút phước lành này về cho Phong và gia đình. Đi đường đi xá luôn bình an vô sự, tai qua nạn khỏi. Trong lúc khó khăn nhất thì đều có người giúp đỡ. Nếu chẳng may đau ốm thì đều gặp được bác sĩ giỏi, đi làm nếu gặp đồng nghiệp xấu thì đều đủ tỉnh táo và bản lĩnh để bước qua. Những lúc gánh nặng cơm áo đè vai vẫn giữ được sức bền, không bao giờ cảm thấy cô độc hay tuyệt vọng.
+Và còn điều nữa, anh em mình đã cùng đi qua một đoạn đường, có những niềm vui đời thường và cả những trầm lặng sẻ chia. Sau này mỗi người lại trở về với nhịp sống riêng. Tôi vắng mặt trong chặng đường sắp tới của ông, nhưng từ nay, mỗi lần cất tiếng kinh niệm, tôi đều xin nguyện hồi hướng chút phước lành này về cho Phong và gia đình. Đi đường đi xá luôn bình an vô sự, tai qua nạn khỏi. Trong lúc khó khăn nhất thì đều có người giúp đỡ. Nếu chẳng may đau ốm thì đều gặp được bác sĩ giỏi, đi làm nếu gặp đồng nghiệp xấu thì đều đủ tỉnh táo và bản lĩnh để bước qua. Những lúc gánh nặng cơm áo đè vai vẫn giữ được sức bền, không bao giờ cảm thấy cô độc hay tuyệt vọng.
 
 Anh em mình bây giờ lại tiếp tục quay lại guồng quay, tiếp tục leo tiếp ngọn núi dốc cuộc sống, mong sau này nếu còn gặp thì không chỉ nhau ở trên bàn nhậu mà còn phải gặp nhau ở trên đỉnh của ngọn núi đó nhé.
 Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong trong cuộc sống.</div>
@@ -210,7 +216,6 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
     function goToScreen(screenNum) {
       if (storyTimer) { clearTimeout(storyTimer); storyTimer = null; }
 
-      // Tắt nhạc nếu quay về các màn trước
       if (screenNum !== 5) {
         stopBgMusic();
       }
@@ -233,7 +238,6 @@ Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong 
         confetti({ particleCount: 80, spread: 90, origin: { y: 0.6 }, colors: ['#f59e0b', '#ec4899', '#8b5cf6', '#10b981'] });
       }
 
-      // CHỈ PHÁT NHẠC KHI ẤN ĐÓNG THƯ LẠI SANG MÀN 5 (STORY)
       if (screenNum === 5) {
         startBgMusic();
         if (activeSc) activeSc.classList.add('z-50');
