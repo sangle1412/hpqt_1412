@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Bức Thư Gửi Phong (Hp qt)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .bg-parchment {
+      background-color: #fdfbf7;
+      background-image: radial-gradient(#e5decf 0.75px, transparent 0.75px), radial-gradient(#e5decf 0.75px, #fdfbf7 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-800 antialiased font-sans select-none min-h-screen flex items-center justify-center">
+
+  <div class="w-full max-w-[430px] h-screen sm:h-[844px] bg-slate-900 flex flex-col justify-center items-center relative overflow-hidden shadow-2xl sm:rounded-[40px]">
+    
+    <!-- MÀN HÌNH 1: PHONG THƯ -->
+    <div id="screen-1" class="absolute inset-0 w-full h-full bg-gradient-to-b from-rose-50 via-white to-amber-50 flex flex-col items-center justify-center p-6 text-center transition-all duration-500 z-30">
+      <div class="w-full max-w-[320px] bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-xl border border-rose-100 flex flex-col items-center">
+        <div class="w-20 h-20 bg-gradient-to-tr from-rose-500 to-amber-500 rounded-3xl flex items-center justify-center text-white mb-5 shadow-lg shadow-rose-500/25">
+          <i data-lucide="mail-heart" class="w-10 h-10"></i>
+        </div>
+        <span class="text-[11px] font-bold uppercase tracking-wider text-rose-500 bg-rose-50 px-3 py-1 rounded-full mb-3 border border-rose-100">Thiệp Thông Điệp</span>
+        <h1 class="text-base font-bold text-slate-900 mb-2 leading-snug">Bạn nhận được 1 bức thư từ Sang</h1>
+        <p class="text-xs text-slate-500 mb-6 leading-relaxed">Nhấn nút bên dưới để mở phong thư xem chi tiết.</p>
+        <button onclick="goToScreen(2)" class="w-full py-3.5 px-6 bg-gradient-to-r from-rose-500 to-amber-500 text-white font-bold rounded-2xl shadow-lg shadow-rose-500/25 active:scale-95 transition flex items-center justify-center gap-2">
+          <i data-lucide="mail-open" class="w-4 h-4"></i>
+          <span>Mở Bức Thư</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MÀN HÌNH 2: TRÒ ĐÙA 1 (MÈO) -->
+    <div id="screen-2" class="absolute inset-0 w-full h-full bg-slate-950/85 backdrop-blur-md flex flex-col items-center justify-center p-5 text-center opacity-0 pointer-events-none scale-95 transition-all duration-500 z-20">
+      <div class="w-full max-w-[330px] bg-white rounded-3xl p-4 shadow-2xl flex flex-col items-center border border-slate-100">
+        <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-inner mb-3">
+          <img id="img-cat" src="cat-photo.png" alt="Mèo bất ngờ" class="w-full h-full object-cover">
+        </div>
+        <h3 class="text-sm font-bold text-slate-800 mb-1">F*ckkk you! 🐱</h3>
+        <p class="text-xs text-slate-500 mb-4">Choáaaaaa Phongggggggg</p>
+        <div class="w-full space-y-2">
+          <button onclick="goToScreen(4)" class="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-rose-500 text-white font-bold rounded-xl text-xs shadow-md active:scale-95 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
+            <span>Cảm ơn anh Sang</span>
+          </button>
+          <button onclick="goToScreen(3)" class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1">
+            <i data-lucide="message-square-warning" class="w-3.5 h-3.5"></i>
+            <span>Chửi lại</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÀN HÌNH 3: TRÒ ĐÙA 2 (HỘP QUÀ SANG) -->
+    <div id="screen-3" class="absolute inset-0 w-full h-full bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center p-5 text-center opacity-0 pointer-events-none scale-95 transition-all duration-500 z-20">
+      <div class="w-full max-w-[330px] bg-white rounded-3xl p-4 shadow-2xl flex flex-col items-center border border-slate-100">
+        <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 shadow-inner mb-3">
+          <img id="img_01-box" src="img_01.png" alt="Sang hộp quà" class="w-full h-full object-cover">
+        </div>
+        <h3 class="text-sm font-bold text-rose-600 mb-1">Dám chửi anh Sang à? 🎁</h3>
+        <p class="text-xs text-slate-500 mb-4">Anh Sang chui từ hộp quà ra đây nè!</p>
+        <div class="w-full space-y-2">
+          <button onclick="goToScreen(4)" class="w-full py-3 px-4 bg-gradient-to-r from-amber-500 to-rose-500 text-white font-bold rounded-xl text-xs shadow-md active:scale-95 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="heart" class="w-4 h-4 fill-white"></i>
+            <span>Cảm ơn anh Sang</span>
+          </button>
+          <button onclick="goToScreen(4)" class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1">
+            <i data-lucide="smile" class="w-3.5 h-3.5 text-amber-500"></i>
+            <span>Em xin lỗi</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÀN HÌNH 4: BỨC THƯ TỬ TẾ & CHÂN THÀNH -->
+    <div id="screen-4" class="absolute inset-0 w-full h-full bg-slate-950 flex flex-col items-center justify-center p-4 text-left opacity-0 pointer-events-none scale-95 transition-all duration-700 z-40 overflow-hidden">
+      <div class="w-full max-w-[350px] max-h-[720px] bg-parchment rounded-3xl p-5 shadow-2xl border border-amber-200/60 flex flex-col relative z-10 overflow-hidden">
+        
+        <div class="flex items-center justify-between pb-3 border-b border-amber-800/15 mb-3 shrink-0">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-full bg-amber-700/10 flex items-center justify-center text-amber-800">
+              <i data-lucide="sparkle" class="w-4 h-4"></i>
+            </div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-900">Tâm Thư Chân Thành</span>
+          </div>
+          <span class="text-[10px] text-amber-800/60 italic font-serif">Sang & Phong</span>
+        </div>
+
+        <div class="flex-1 overflow-y-auto no-scrollbar pr-1 space-y-3 font-serif text-slate-800 text-[12px] leading-relaxed">
+          <p class="font-bold text-amber-900 text-sm italic font-sans">Thân tặng Phong (Hp qt),</p>
+          
+          <div class="whitespace-pre-line text-justify text-slate-800/90 font-serif leading-relaxed">Thân tặng Hp qt,
+Chẳng có đồ gì sịn hay đắt tiền, có chiếc dây treo đan từ chỉ ngũ sắc này, trong Phật giáo các đồ đan từ chỉ ngũ sắc tượng trưng cho sự bình an, may mắn và được hộ mệnh. Dây treo này là duyên phước do thầy của tôi (trụ trì chùa Sùng Phúc - Bắc Ninh) tặng cho tôi lần đầu gặp, thầy mua khi thầy đi Tây Tạng. Tôi để ở bên phòng thờ nên cũng hay được nghe tôi tụng kinh trì niệm. Phước lành sinh ra là để lan tỏa, nên tôi muốn gửi trao lại duyên lành này cho Phong, mong rằng trong từng bước đường phía trước, Phong và gia đình luôn bình an, khỏe mạnh và hanh thông.
+
+Và còn điều nữa, anh em mình đã cùng đi qua một đoạn đường, có những niềm vui đời thường và cả những trầm lặng sẻ chia. Sau này mỗi người lại trở về với nhịp sống riêng. Tôi vắng mặt trong chặng đường sắp tới của ông, nhưng từ nay, mỗi lần cất tiếng kinh niệm, tôi đều xin nguyện hồi hướng chút phước lành này về cho Phong và gia đình. Đi đường đi xá luôn bình an vô sự, tai qua nạn khỏi. Trong lúc khó khăn nhất thì đều có người giúp đỡ. Nếu chẳng may đau ốm thì đều gặp được bác sĩ giỏi, đi làm nếu gặp đồng nghiệp xấu thì đều đủ tỉnh táo và bản lĩnh để bước qua. Những lúc gánh nặng cơm áo đè vai vẫn giữ được sức bền, không bao giờ cảm thấy cô độc hay tuyệt vọng.
+
+Anh em mình bây giờ lại tiếp tục quay lại guồng quay, tiếp tục leo tiếp ngọn núi dốc cuộc sống, mong sau này nếu còn gặp thì không chỉ nhau ở trên bàn nhậu mà còn phải gặp nhau ở trên đỉnh của ngọn núi đó nhé.
+Luôn tin tưởng và ủng hộ Phong với mọi quyết định của Phong trong cuộc sống.</div>
+
+          <div class="pt-4 border-t border-amber-800/15 flex flex-col items-end">
+            <span class="text-xs text-amber-900/70 font-sans italic">Trân trọng & Luôn tin tưởng,</span>
+            <span class="text-lg font-['Caveat'] font-bold text-amber-900">Sang</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-amber-800/15 mt-2 shrink-0">
+          <button onclick="goToScreen(1)" class="w-full py-2.5 px-4 bg-amber-900/10 hover:bg-amber-900/20 text-amber-900 font-sans font-semibold rounded-xl text-xs active:scale-95 transition flex items-center justify-center gap-1.5">
+            <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+            <span>Đọc lại từ đầu</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    function goToScreen(screenNum) {
+      for (let i = 1; i <= 4; i++) {
+        const sc = document.getElementById('screen-' + i);
+        sc.classList.remove('opacity-100', 'scale-100', 'z-40');
+        sc.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+      }
+
+      const activeSc = document.getElementById('screen-' + screenNum);
+      activeSc.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+      activeSc.classList.add('opacity-100', 'scale-100', 'z-40');
+
+      if (screenNum === 4) {
+        confetti({
+          particleCount: 80,
+          spread: 90,
+          origin: { y: 0.6 },
+          colors: ['#f59e0b', '#ec4899', '#8b5cf6', '#10b981']
+        });
+      }
+    }
+  </script>
+</body>
+</html>
