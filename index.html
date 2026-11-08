@@ -9,21 +9,24 @@
   <style>
     @keyframes fall {
       0% {
-        transform: translateY(-50px) rotate(0deg) translateX(0px);
+        transform: translateY(0px) rotate(0deg) translateX(0px);
+        opacity: 0;
+      }
+      10% {
         opacity: 0.9;
       }
-      50% {
-        transform: translateY(50vh) rotate(180deg) translateX(25px);
+      85% {
         opacity: 0.7;
       }
       100% {
-        transform: translateY(105vh) rotate(360deg) translateX(-15px);
-        opacity: 0.1;
+        transform: translateY(115vh) rotate(360deg) translateX(-15px);
+        opacity: 0;
       }
     }
     .petal {
       position: absolute;
-      top: -20px;
+      top: -80px;
+      opacity: 0;
       pointer-events: none;
       animation: fall linear infinite;
       user-select: none;
@@ -74,7 +77,6 @@
         petal.style.fontSize = (Math.random() * 10 + 14) + 'px';
         petal.style.animationDuration = (Math.random() * 6 + 5) + 's';
         petal.style.animationDelay = (Math.random() * 7) + 's';
-        petal.style.opacity = Math.random() * 0.7 + 0.3;
         container.appendChild(petal);
       }
     }
